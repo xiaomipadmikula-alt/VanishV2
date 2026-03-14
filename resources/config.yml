@@ -1,98 +1,81 @@
-# Use the § symbol for color coding
-# Color code list https://minecraft.tools/en/color-code.php
-# Use %name for the name of the player who vanished
-# use %other-name for the name of the player who vanished another player
-#   private message config:
-#     use %sender for the message sender and %message for the content of the message
-#   Default Config:
-#     FakeLeave-message: "§e%name Left the game"
-#     FakeJoin-message: "§e%name joined the game"
-#     vanish-message: "§aYou are now vanished."
-#     unvanish-message: "§cYou are no longer vanished!"
-#     vanish: "§7§o[%name: Vanished]"
-#     unvanish: "§7§o[%name: Unvanished]"
-#     vanish-other: "§aVanished %name"
-#     unvanish-other: "§cUnvanished %name"
-#     vanished-other: "§aYou are now vanished."
-#     unvanished-other: "§cYou are no longer vanished!"
-#     hud-message: "§aYou are currently vanished"
-#     messages:
-#       sender-error: "That player cannot be found"
-#       receiver-message: "§c%sender tried to send a message to you: §7%message"
+# Используйте символ § для цветовых кодов
+# Список цветовых кодов: https://minecraft.tools/en/color-code.php
+# Используйте %name для имени игрока, который вошел в режим невидимости
+# Используйте %other-name для имени игрока, который скрыл другого игрока
+# Настройка личных сообщений:
+# Используйте %sender для отправителя и %message для содержания сообщения
 
-
-# Do not change this!
+# Не меняйте это!
 config-version: 8
 
-# The message that will be sent to online players when you turn on vanish
+# Сообщение, которое увидят игроки при включении невидимости (фейковый выход)
 enable-leave: false
-FakeLeave-message: "§e%name left the game"
+FakeLeave-message: "§e%name покинул игру"
 
-# The message that will be sent to online players when you turn off vanish
+# Сообщение, которое увидят игроки при выключении невидимости (фейковый вход)
 enable-join: false
-FakeJoin-message: "§e%name joined the game"
+FakeJoin-message: "§e%name присоединился к игре"
 
-# choose the message that will be sent when a player execute /vanish
-vanish-message: "§aYou are now vanished."
-unvanish-message: "§cYou are no longer vanished!"
+# Сообщение игроку при выполнении команды /vanish
+vanish-message: "§aВы теперь невидимы."
+unvanish-message: "§cВы больше не невидимы!"
 
-# Choose the message that will be sent to player with the permission vanish.see when a player execute /vanish
-vanish: "§7§o[%name: Vanished]"
-unvanish: "§7§o[%name: Unvanished]"
+# Сообщение игрокам с пермишеном vanish.see, когда кто-то входит в ваниш
+vanish: "§7§o[%name: Скрылся]"
+unvanish: "§7§o[%name: Появился]"
 
-# Choose the message that will be sent to the player who vanished another player
-vanish-other: "§aVanished %name"
-unvanish-other: "§cUnvanished %name"
+# Сообщение тому, кто скрыл другого игрока
+vanish-other: "§aВы скрыли игрока %name"
+unvanish-other: "§cВы открыли игрока %name"
 
-# Choose the message that will be sent to the player when another player vanish him
-vanished-other: "§aYou are now vanished."
-unvanished-other: "§cYou are no longer vanished!"
+# Сообщение игроку, которого скрыл другой игрок
+vanished-other: "§aВы теперь невидимы."
+unvanished-other: "§cВы больше не невидимы!"
 
-# Choose the message that will be sent to vanished players who try to hit other players without the permissions
-hit-no-permission: "§cYou do not have permission to hit other players while vanished"
+# Сообщение, если невидимый игрок пытается ударить кого-то без прав
+hit-no-permission: "§cУ вас нет прав бить других игроков в невидимости"
 
-# Choose the hud message that will be shown when you are vanished
-hud-message: "§aYou are currently vanished"
+# HUD сообщение (над панелью быстрого доступа), когда вы в невидимости
+hud-message: "§aВы сейчас в невидимости"
 
-# Choose if the player should be unvanished when he leaves the server
+# Выключать ли невидимость при выходе с сервера
 unvanish-after-leaving: false
 
-# Choose if the player should be unvanished when the server restart
+# Выключать ли невидимость при перезагрузке сервера
 unvanish-after-restart: false
 
-# Choose if vanished players can fly when they are in survival
+# Разрешить ли невидимым игрокам летать в выживании
 enable-fly: true
 
-# Choose if vanished players can take damage when they are in survival mode
+# Отключить ли получение урона в режиме выживания для невидимых
 disable-damage: true
 
-# Choose if chest should be silent when you open them (Chests will be read-only)
+# Сделать ли открытие сундуков бесшумным (сундуки будут только для чтения)
 silent-chest: true
 
-# Choose if vanished players should lose hunger
+# Тратить ли голод в невидимости
 hunger: false
 
-# Choose if vanished players should have a night vision effect
+# Давать ли эффект ночного зрения невидимым игрокам
 night-vision: true
 
-# Choose if the join/leave message should appear when a player with the permission vanish.silent joins the server
+# Скрывать ли обычные сообщения о входе/выходе для игроков с vanish.silent
 silent-join-leave:
   join: true
   leave: true
-  # Choose if this should only apply to players who are already vanished
+  # Применять это только если игрок уже был в невидимости
   vanished-only: true
 
-# Choose if players can send private messages to vanished players otherwise they will need the vanish.see permission to send message to vanished players
-# The vanished player will still receive the message but the sender will get an error message that you can configure below
+# Могут ли обычные игроки писать ЛС невидимым (иначе будет ошибка ниже)
 can-send-msg: false
 messages:
-  sender-error: "That player cannot be found"
-  receiver-message: "§c%sender tried to send a message to you: §7%message"
-  # If you want to add commands that should be blocked when used on a vanished player
-  # The commands CANNOT begin with a slash
+  sender-error: "Игрок не найден"
+  receiver-message: "§c%sender пытался отправить вам сообщение: §7%message"
+
+# Список команд, которые будут заблокированы при использовании на невидимом игроке
+# Команды пишутся БЕЗ слеша /
 additional-commands:
-# Example
+# Пример
 #  tpa:
-#    sender-error: "That player cannot be found"
-#    receiver-message: "§c%sender tried to send a tp request to you"
-...
+#    sender-error: "Игрок не найден"
+#    receiver-message: "§c%sender пытался отправить вам запрос на телепортацию"
